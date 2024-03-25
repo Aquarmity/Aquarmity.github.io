@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Lyrical from '../components/Lyrical.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div>
+				<!--pull lyric from markdown file -->
+				<Lyrical lyric="I'd guess they would say, we could set this world ablaze." song="TheLastBaron" color="#dab350" /> 
+				<Lyrical lyric="What a strange way to lose." song="Dissociation" color="#7191c0" />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	div {
+		width: 100vw;
+	}
+	main {
+		padding: 1%;
+		margin: 1%;
+	}
+</style>

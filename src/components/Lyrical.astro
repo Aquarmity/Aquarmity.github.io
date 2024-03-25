@@ -1,0 +1,18 @@
+---
+const {lyric, song, color} = Astro.props;
+---
+
+<p><a href={"lyricwall/" + song}>{lyric}&nbsp;</a></p>
+
+<style define:vars={{ textColor: color }}>
+    p, a {
+        color: #ffffff;
+        text-decoration: none;
+        display: inline;
+    }
+    
+    a:hover {
+        color: var(--textColor);
+        transition: 0.3s;
+    }
+</style>
