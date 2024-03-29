@@ -13,4 +13,16 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const lyricwall = defineCollection({
+	type: 'content',
+	// Type-check frontmatter using a schema
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		artist: z.string(),
+		lyric: z.string(),
+		spotifyLink: z.string(),
+	}),
+});
+
+export const collections = { blog, lyricwall };

@@ -1,8 +1,10 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 const {lyric, song, color} = Astro.props;
+const currentSong = await getEntry('lyricwall', 'thelastbaron')
 ---
 
-<p><a href={"lyricwall/" + song}>{lyric}&nbsp;</a></p>
+<p><a href={`/lyrical/${currentSong.slug}`}>{lyric}. &nbsp;</a></p>
 
 <style define:vars={{ textColor: color }}>
     p, a {
