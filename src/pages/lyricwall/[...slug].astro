@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import LyricalAnalysis from '../../layouts/LyricalAnalysis.astro';
+
+export async function getStaticPaths() {
+	const songs = await getCollection('lyricwall');
+	return songs.map((song) => ({
+		params: { slug: song.slug },
+		props: song,
+	}));
+}
+type Props = CollectionEntry<'lyricwall'>;
+
+const song = Astro.props;
+const { Content } = await song.render();
+---
+
+<LyricalAnalysis {...song.data}>
+	<Content />
+</LyricalAnalysis>

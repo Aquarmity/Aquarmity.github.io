@@ -22,6 +22,7 @@ const lyricwall = defineCollection({
 		artist: z.string(),
 		lyric: z.string(),
 		spotifyLink: z.string(),
+		color: z.string()
 	}),
 });
 

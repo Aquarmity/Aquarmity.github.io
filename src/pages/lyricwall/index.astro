@@ -1,0 +1,42 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Lyrical from '../../components/Lyrical.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+const songs = (await getCollection('lyricwall')).sort(() => Math.random() - 0.5);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div>
+				{
+					songs.map((song) => (
+						<Lyrical lyric={song.data.lyric} song={song.data.title} color={song.data.color} link={song.slug} />
+					))
+				}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	div {
+		margin: 0px;
+		padding: 1%;
+		width: 97vw;
+	}
+	main {
+		margin: 1%;
+		padding: 0px;
+	}
+</style>
