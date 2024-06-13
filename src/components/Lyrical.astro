@@ -7,7 +7,7 @@ const {lyric, song, color, link} = Astro.props;
 
 <style define:vars={{ textColor: color }}>
     p, a {
-        color: #ffffff;
+        color: var(--gray);
         text-decoration: none;
         display: inline;
     }
