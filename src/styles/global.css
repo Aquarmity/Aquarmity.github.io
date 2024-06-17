@@ -23,7 +23,7 @@ body {
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--gray);
 	font-size: 20px;
 	line-height: 1.7;
 
@@ -41,7 +41,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--gray);
 	line-height: 1.2;
 }
 h1 {
@@ -92,7 +92,7 @@ img {
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: var(--gray);
 	border-radius: 2px;
 }
 pre {
@@ -110,7 +110,7 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--gray);
 }
 @media (max-width: 720px) {
 	body {
