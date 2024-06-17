@@ -1,6 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-const {lyric, song, color, link} = Astro.props;
+const {lyric, color, link} = Astro.props;
 ---
 
 <p><a href={`/lyricwall/${link}/`}>{lyric} &nbsp;</a></p>
