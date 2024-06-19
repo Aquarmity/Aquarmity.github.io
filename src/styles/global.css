@@ -7,9 +7,10 @@
 :root {
 	--purple: #554d93;
 	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
+	--black: rgb(15, 18, 25);
 	--gray: #ada9bb;
 	--gray-dark: #807e8a;
+	--link: #758bde;
 }
 body {
 	/* font-family: 'IBM Plex Sans JP', sans-serif; */
@@ -64,10 +65,10 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--gray);
+	color: var(--link);
 }
 a:hover {
-	color: var(--gray);
+	color: var(--gray-dark);
 }
 p {
 	margin-bottom: 1em;

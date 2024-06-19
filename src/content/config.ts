@@ -17,7 +17,6 @@ const lyricwall = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
-		description: z.string(),
 		artist: z.string(),
 		lyric: z.string(),
 		spotifyLink: z.string(),
