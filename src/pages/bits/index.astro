@@ -8,13 +8,42 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={'Bits'} description={'...And Pieces'} />
 	</head>
 	<body>
 		<Header />
 		<main>
+			<h1>...And Pieces</h1>
+			<nav>
+				<ul>
+					<li>
+						<a class="category">Cubing <span>&#x27a4;</span></a>
+					</li>
+					<li>
+						<a class="category">Language &#x27a4;</a>
+					</li>
+					<li>
+						<a class="category">Development &#x27a4;</a>
+					</li>
+				</ul>
+			</nav>
 			☯
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	nav ul {
+		list-style-type: none;
+		text-align: right;
+	}
+	nav {
+		display: flex;
+		justify-content: left;
+	}
+</style>
+
+<!--
+GOAL FOR ARROWS: have them face left, when you click on a link it spins the active one right and the previously active one back left
+-->

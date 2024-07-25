@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 type Props = CollectionEntry<'lyricwall'>['data'];
 
-const { title, artist, lyric, spotifyLink, color } = Astro.props;
+const { title, artist, lyric, extraLyric, spotifyLink, color } = Astro.props;
 ---
 
 <html lang="en">
@@ -55,12 +55,18 @@ const { title, artist, lyric, spotifyLink, color } = Astro.props;
 			<article>
 				<!--To format a spotifyLink, copy the link, add /embed/ before track, and take off the stuff after ? -->
 				<iframe style="border-radius:12px; border: 0px" src={spotifyLink + "?utm_source=generator"} width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-				<h5 class="centering" style={`color: ${color}`}>
+				<h2 class="centering" style={`color: ${color}`}>
 					"{lyric}"
-				</h5>
+				</h2>
 				<div class="prose">
 					<slot />
 				</div>
+				{extraLyric != null &&
+				<h2 class="centering" style={`color: ${color}`}>
+					"{extraLyric}"
+				</h2>
+				<div class="prose" />
+				}
 				<p class="centering">
 					☯
 				</p>
