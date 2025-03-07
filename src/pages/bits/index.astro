@@ -17,13 +17,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 			<nav>
 				<ul>
 					<li>
-						<a class="category">Cubing &#x27a4;</a>
+						<!--TODO: move text more left, display content on click (fade in? something)-->
+						<h3 class="category">Cubing <span class="arrow">&#x27a4;</span></a>
 					</li>
 					<li>
-						<a class="category">Language &#x27a4;</a>
+						<h3 class="category">Language <span class="arrow">&#x27a4;</span></a>
 					</li>
 					<li>
-						<a class="category">Development &#x27a4;</a>
+						<h3 class="category">Development <span class="arrow">&#x27a4;</span></a>
 					</li>
 				</ul>
 			</nav>
@@ -41,8 +42,64 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 		display: flex;
 		justify-content: left;
 	}
+
+	.category {
+		-webkit-user-select: none;
+		user-select: none;
+		cursor: pointer;
+	}
+
+	.category:hover {
+		color: var(--link);
+		transition: 0.5s;
+	}
+
+	.arrow {
+		display: inline-block;
+		transform: rotate(-180deg);
+	}
+	
+	.rotate {
+		animation: flip 0.2s linear;
+		animation-fill-mode: forwards;
+	}
+
+	.unrotate {
+		animation: flip 0.2s reverse;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes flip {
+		0% {
+			transform: rotate(-180deg);
+		}
+		50% {
+			transform: rotate(-90deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 </style>
 
-<!--
-GOAL FOR ARROWS: have them face left, when you click on a link it spins the active one right and the previously active one back left
--->
+<script>
+	const categories = document.querySelectorAll('h3.category');
+	const arrows = document.querySelectorAll('span.arrow');
+
+	categories.forEach((category) => {
+		category.addEventListener('click', () => {
+			const arrow = category.querySelector('span.arrow');
+			arrows.forEach((a) => {
+				if (a.classList.contains("rotate") && a != arrow) {
+					a.classList.remove("rotate");
+					a.clientHeight;
+					a.classList.add("unrotate");
+				}
+			})
+
+			arrow?.classList.remove("unrotate");
+			arrow?.clientHeight;
+			arrow?.classList.add("rotate");
+		});
+	});
+</script>
