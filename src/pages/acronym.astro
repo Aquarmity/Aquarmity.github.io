@@ -1,0 +1,51 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h4>Generate brainrot acronyms</h4>
+			<textarea id="input" autocomplete="off" placeholder="Text to acronymize"></textarea><br>
+            <textarea id="output" autocomplete="off" placeholder="Ttr" readonly></textarea>
+		</main>
+		<Footer />
+	</body>
+    <script>
+		const re = /(?<=\b)\w/g;
+		var userInput: HTMLInputElement = document.getElementById('input') as HTMLInputElement;
+		var output: HTMLInputElement = document.getElementById('output') as HTMLInputElement;
+		if (userInput) {
+			userInput.onkeyup = function() {
+				
+				let outputString = "";
+				let m;
+				do {
+					m = re.exec(userInput.value);
+				if (m) {
+					console.log(m[0]);
+					outputString = outputString.concat(m[0]);
+					}
+				} while (m);
+
+				output.value = outputString;
+			}
+		}
+		
+    </script>
+	<style>
+		textarea {
+			width: 100%;
+			height: 100px;
+			margin: 5%;
+		}
+	</style>
+</html>
